@@ -12,11 +12,11 @@ let time = 0;
 let path = [];
 
 function setup() {
-  createCanvas(4000, 4000);
+  createCanvas(1000, 1200);
   const skip = 1;
   for (let i = 0; i < drawing.length; i += skip) {
-    x.push(drawing[i].x*10);
-    y.push(drawing[i].y*10);
+    x.push(drawing[i].x);
+    y.push(drawing[i].y);
   }
   fourierX = dft(x);
   fourierY = dft(y);
