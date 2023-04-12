@@ -12,38 +12,119 @@ console.log(drawing)
   // console.log("Hello")
 
 
-  let x = [];
+
+//contains everything(not needed right now but agar zaroorat pad jaye)
+  let x = [];  
   let y = [];
   let fourierX;
   let fourierY;
+  let time = 0;
+  let path = [];
+
+
+// For individual elements:
+
+//Fourier
   let fourierlipsX;
   let fourierlipsY;
   let fouriernoseX;
   let fouriernoseY;
-  let time = 0;
+  let fourier_left_eye_X;
+  let fourier_left_eye_Y;
+  let fourier_right_eye_X;
+  let fourier_right_eye_Y;
+
+
+  let fourier_left_eyebrow_X;
+  let fourier_left_eyebrow_Y;
+  let fourier_left_eye_outer_X;
+  let fourier_left_eye_outer_Y;
+  let fourier_left_eye_inner_X;
+  let fourier_left_eye_inner_Y;
+
+  let fourier_right_eyebrow_X;
+  let fourier_right_eyebrow_Y;
+  let fourier_right_eye_outer_X;
+  let fourier_right_eye_outer_Y;
+  let fourier_right_eye_inner_X;
+  let fourier_right_eye_inner_Y;
+
+  let fourier_face_X;
+  let fourier_face_Y;
+  
+  
+
+  // Time
   let lips_time = 0;
   let nose_time = 0;
-  let path = [];
-  
+  let left_eye_time = 0;
+  let right_eye_time = 0;
+
+  let left_eyebrow_time = 0;
+  let left_eye_outer_time = 0;
+  let left_eye_inner_time = 0;
+
+  let right_eyebrow_time = 0;
+  let right_eye_outer_time = 0;
+  let right_eye_inner_time = 0;
+
+  let face_time = 0;
+
+  // x and y coordinates
   let lipsX = []
   let lipsY = []
   let noseX = []
   let noseY = []
+  let left_eye_x = []
+  let left_eye_y = []
+  let right_eye_x = []
+  let right_eye_y = []
+
+  let left_eyebrow_x = []
+  let left_eyebrow_y = []
+  let left_eye_outer_x = []
+  let left_eye_outer_y = []
+  let left_eye_inner_x = []
+  let left_eye_inner_y = []
+ 
+  let right_eyebrow_x = []
+  let right_eyebrow_y = []
+  let right_eye_outer_x = []
+  let right_eye_outer_y = []
+  let right_eye_inner_x = []
+  let right_eye_inner_y = []
+
+  let face_x = []
+  let face_y = []
+
+// path
   let lipsPath = []
   let nosePath = []
+  let left_eye_path = []
+  let right_eye_path = []
+
+  let left_eyebrow_path = []
+  let left_eye_outer_path = []
+  let left_eye_inner_path = []
+
+  let right_eyebrow_path = []
+  let right_eye_outer_path = []
+  let right_eye_inner_path = []
+
+  let face_path = []
+
 
   function creating_lips()
   {
     // let x = [];
     // let y = [];
-    path = []
+    // path = []
     const skip = 1;
     for (let i = 0; i < lips.length; i += skip) {
-      x.push(lips[i].x);
-      y.push(lips[i].y);
+      // x.push(lips[i].x);
+      // y.push(lips[i].y);
       lipsX.push(lips[i].x);
       lipsY.push(lips[i].y);
-
     }
     fourierlipsX = dft(lipsX);
     fourierlipsY = dft(lipsY);
@@ -57,11 +138,9 @@ console.log(drawing)
   {
     // let x = [];
     // let y = [];
-    path = []
+    // path = []
     const skip = 1;
     for (let i = 0; i < nose.length; i += skip) {
-      x.push(nose[i].x);
-      y.push(nose[i].y);
       noseX.push(nose[i].x);
       noseY.push(nose[i].y);
     }
@@ -72,15 +151,188 @@ console.log(drawing)
     fouriernoseY.sort((a, b) => b.amp - a.amp);
   }
 
+
+
+// LEFT SIDE
+  function creating_left_eye()
+  {
+    // let x = [];
+    // let y = [];
+    // path = []
+    const skip = 1;
+    for (let i = 0; i < left_eye.length; i += skip) {
+      left_eye_x.push(left_eye[i].x);
+      left_eye_y.push(left_eye[i].y);
+    }
+    fourier_left_eye_X = dft(left_eye_x);
+    fourier_left_eye_Y = dft(left_eye_y);
+
+    fourier_left_eye_X.sort((a, b) => b.amp - a.amp);
+    fourier_left_eye_Y.sort((a, b) => b.amp - a.amp);
+  }
+
+
+  function creating_left_eyebrow()
+  {
+    // let x = [];
+    // let y = [];
+    // path = []
+    const skip = 1;
+    for (let i = 0; i < left_eyebrow.length; i += skip) {
+      left_eyebrow_x.push(left_eyebrow[i].x);
+      left_eyebrow_y.push(left_eyebrow[i].y);
+    }
+    fourier_left_eyebrow_X = dft(left_eyebrow_x);
+    fourier_left_eyebrow_Y = dft(left_eyebrow_y);
+
+    fourier_left_eyebrow_X.sort((a, b) => b.amp - a.amp);
+    fourier_left_eyebrow_Y.sort((a, b) => b.amp - a.amp);
+  }
+
+  function creating_left_eye_outer()
+{
+  // let x = [];
+  // let y = [];
+  // path = []
+  const skip = 1;
+  for (let i = 0; i < left_eye_outer.length; i += skip) {
+    left_eye_outer_x.push(left_eye_outer[i].x);
+    left_eye_outer_y.push(left_eye_outer[i].y);
+  }
+  fourier_left_eye_outer_X = dft(left_eye_outer_x);
+  fourier_left_eye_outer_Y = dft(left_eye_outer_y);
+
+  fourier_left_eye_outer_X.sort((a, b) => b.amp - a.amp);
+  fourier_left_eye_outer_Y.sort((a, b) => b.amp - a.amp);
+}
+
+function creating_left_eye_inner()
+{
+  // let x = [];
+  // let y = [];
+  // path = []
+  const skip = 1;
+  for (let i = 0; i < left_eye_inner.length; i += skip) {
+    left_eye_inner_x.push(left_eye_inner[i].x);
+    left_eye_inner_y.push(left_eye_inner[i].y);
+  }
+  fourier_left_eye_inner_X = dft(left_eye_inner_x);
+  fourier_left_eye_inner_Y = dft(left_eye_inner_y);
+
+  fourier_left_eye_inner_X.sort((a, b) => b.amp - a.amp);
+  fourier_left_eye_inner_Y.sort((a, b) => b.amp - a.amp);
+}
+
+
+// RIGHT SIDE
+  function creating_right_eye()
+  {
+    // let x = [];
+    // let y = [];
+    // path = []
+    const skip = 1;
+    for (let i = 0; i < right_eye.length; i += skip) {
+      right_eye_x.push(right_eye[i].x);
+      right_eye_y.push(right_eye[i].y);
+    }
+    fourier_right_eye_X = dft(right_eye_x);
+    fourier_right_eye_Y = dft(right_eye_y);
+
+    fourier_right_eye_X.sort((a, b) => b.amp - a.amp);
+    fourier_right_eye_Y.sort((a, b) => b.amp - a.amp);
+  }
+
+  function creating_right_eyebrow()
+{
+  // let x = [];
+  // let y = [];
+  // path = []
+  const skip = 1;
+  for (let i = 0; i < right_eyebrow.length; i += skip) {
+    right_eyebrow_x.push(right_eyebrow[i].x);
+    right_eyebrow_y.push(right_eyebrow[i].y);
+  }
+  fourier_right_eyebrow_X = dft(right_eyebrow_x);
+  fourier_right_eyebrow_Y = dft(right_eyebrow_y);
+
+  fourier_right_eyebrow_X.sort((a, b) => b.amp - a.amp);
+  fourier_right_eyebrow_Y.sort((a, b) => b.amp - a.amp);
+}
+
+function creating_right_eye_outer()
+{
+// let x = [];
+// let y = [];
+// path = []
+const skip = 1;
+for (let i = 0; i < right_eye_outer.length; i += skip) {
+  right_eye_outer_x.push(right_eye_outer[i].x);
+  right_eye_outer_y.push(right_eye_outer[i].y);
+}
+fourier_right_eye_outer_X = dft(right_eye_outer_x);
+fourier_right_eye_outer_Y = dft(right_eye_outer_y);
+
+fourier_right_eye_outer_X.sort((a, b) => b.amp - a.amp);
+fourier_right_eye_outer_Y.sort((a, b) => b.amp - a.amp);
+}
+
+function creating_right_eye_inner()
+{
+// let x = [];
+// let y = [];
+// path = []
+const skip = 1;
+for (let i = 0; i < right_eye_inner.length; i += skip) {
+  right_eye_inner_x.push(right_eye_inner[i].x);
+  right_eye_inner_y.push(right_eye_inner[i].y);
+}
+fourier_right_eye_inner_X = dft(right_eye_inner_x);
+fourier_right_eye_inner_Y = dft(right_eye_inner_y);
+
+fourier_right_eye_inner_X.sort((a, b) => b.amp - a.amp);
+fourier_right_eye_inner_Y.sort((a, b) => b.amp - a.amp);
+}
+
+
+// FACE
+function creating_face()
+{
+// let x = [];
+// let y = [];
+// path = []
+const skip = 1;
+for (let i = 0; i < face.length; i += skip) {
+  face_x.push(face[i].x);
+  face_y.push(face[i].y);
+}
+fourier_face_X = dft(face_x);
+fourier_face_Y = dft(face_y);
+
+fourier_face_X.sort((a, b) => b.amp - a.amp);
+fourier_face_Y.sort((a, b) => b.amp - a.amp);
+}
+
+
+
+
   function setup() {
     createCanvas(1000, 1200);
     creating_lips()
     creating_nose()
+    creating_left_eye()
+    creating_right_eye()
+    creating_left_eyebrow()
+    creating_left_eye_outer()
+    creating_left_eye_inner()
+    creating_right_eyebrow()
+    creating_right_eye_outer()
+    creating_right_eye_inner()
+    creating_face()
     // noLoop()
     
   }
 
-  function epiCycles(x, y, rotation, fourier , element_time) {
+  function epiCycles(x, y, rotation, fourier, element_time) {
     for (let i = 0; i < fourier.length; i++) {
       let prevx = x;
       let prevy = y;
@@ -107,28 +359,26 @@ console.log(drawing)
   console.log(x.length)
 
 
-  function drawing_element(fourierX,fourierY,element_path,element_time)
-  {
-    console.log("Hello")
-    console.log(element_path.length)
-    let vx = epiCycles(width / 2 + 100, 100, 0, fourierX , element_time);
-    let vy = epiCycles(100, height / 2 + 100, HALF_PI, fourierY, element_time);
-    let v = createVector(vx.x, vy.y);
-    element_path.unshift(v);
-    line(vx.x, vx.y, v.x, v.y);
-    line(vy.x, vy.y, v.x, v.y);
-    beginShape();
-    noFill();
-    for (let i = 0; i < element_path.length; i++) {
-      vertex(element_path[i].x, element_path[i].y);
-      console.log(element_path[i].x)
-    }
-    endShape();
-    const dt = TWO_PI / fourierY.length;
-    element_time += dt
-    
-    
-  }
+  // function drawing_element(fourierX,fourierY,element_path,element_time)
+  // {
+  //   console.log("Hello")
+  //   console.log(element_path.length)
+  //   let vx = epiCycles(width / 2 + 100, 100, 0, fourierX , element_time);
+  //   let vy = epiCycles(100, height / 2 + 100, HALF_PI, fourierY, element_time);
+  //   let v = createVector(vx.x, vy.y);
+  //   element_path.unshift(v);
+  //   line(vx.x, vx.y, v.x, v.y);
+  //   line(vy.x, vy.y, v.x, v.y);
+  //   beginShape();
+  //   noFill();
+  //   for (let i = 0; i < element_path.length; i++) {
+  //     vertex(element_path[i].x, element_path[i].y);
+  //     console.log(element_path[i].x)
+  //   }
+  //   endShape();
+  //   const dt = TWO_PI / fourierY.length;
+  //   element_time += dt
+  // }
 
   function draw() {
     background(0);
@@ -178,15 +428,165 @@ console.log(drawing)
     const dt_lips = TWO_PI / fourierlipsY.length;
     lips_time += dt_lips
 
+// // LEFT PORTIONNNNNNNNNNNNNNN
+    // Drawing Left Eye
+    let v_left_eye_x = epiCycles(width / 2 + 100, 100, 0, fourier_left_eye_X , left_eye_time);
+    let v_left_eye_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_left_eye_Y, left_eye_time);
+    let v_left_eye = createVector(v_left_eye_x.x, v_left_eye_y.y);
+    left_eye_path.unshift(v_left_eye);
+    line(v_left_eye_x.x, v_left_eye_x.y, v_left_eye.x, v_left_eye.y);
+    line(v_left_eye_y.x,v_left_eye_y.y, v_left_eye.x, v_left_eye.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < left_eye_path.length; i++) {
+      vertex(left_eye_path[i].x, left_eye_path[i].y);
+    }
+    endShape();
+    const dt_left_eye = TWO_PI / fourier_left_eye_Y.length;
+    left_eye_time +=dt_left_eye
 
+
+//     // Drawing Left Eye Brow
+    let v_left_eyebrow_x = epiCycles(width / 2 + 100, 100, 0, fourier_left_eyebrow_X , left_eyebrow_time);
+    let v_left_eyebrow_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_left_eyebrow_Y, left_eyebrow_time);
+    let v_left_eyebrow = createVector(v_left_eyebrow_x.x, v_left_eyebrow_y.y);
+    left_eyebrow_path.unshift(v_left_eyebrow);
+    line(v_left_eyebrow_x.x, v_left_eyebrow_x.y, v_left_eyebrow.x, v_left_eyebrow.y);
+    line(v_left_eyebrow_y.x,v_left_eyebrow_y.y, v_left_eyebrow.x, v_left_eyebrow.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < left_eyebrow_path.length; i++) {
+      vertex(left_eyebrow_path[i].x, left_eyebrow_path[i].y);
+    }
+    endShape();
+    const dt_left_eyebrow = TWO_PI / fourier_left_eyebrow_Y.length;
+    left_eyebrow_time +=dt_left_eyebrow
+
+
+    // Drawing Left Eye Outer
+    let v_left_eye_outer_x = epiCycles(width / 2 + 100, 100, 0, fourier_left_eye_outer_X , left_eye_outer_time);
+    let v_left_eye_outer_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_left_eye_outer_Y, left_eye_outer_time);
+    let v_left_eye_outer = createVector(v_left_eye_outer_x.x, v_left_eye_outer_y.y);
+    left_eye_outer_path.unshift(v_left_eye_outer);
+    line(v_left_eye_outer_x.x, v_left_eye_outer_x.y, v_left_eye_outer.x, v_left_eye_outer.y);
+    line(v_left_eye_outer_y.x,v_left_eye_outer_y.y, v_left_eye_outer.x, v_left_eye_outer.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < left_eye_outer_path.length; i++) {
+      vertex(left_eye_outer_path[i].x, left_eye_outer_path[i].y);
+    }
+    endShape();
+    const dt_left_eye_outer = TWO_PI / fourier_left_eye_outer_Y.length;
+    left_eye_outer_time +=dt_left_eye_outer
+    
+
+    // Drawing Left Eye inner
+    let v_left_eye_inner_x = epiCycles(width / 2 + 100, 100, 0, fourier_left_eye_inner_X , left_eye_inner_time);
+    let v_left_eye_inner_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_left_eye_inner_Y, left_eye_inner_time);
+    let v_left_eye_inner = createVector(v_left_eye_inner_x.x, v_left_eye_inner_y.y);
+    left_eye_inner_path.unshift(v_left_eye_inner);
+    line(v_left_eye_inner_x.x, v_left_eye_inner_x.y, v_left_eye_inner.x, v_left_eye_inner.y);
+    line(v_left_eye_inner_y.x,v_left_eye_inner_y.y, v_left_eye_inner.x, v_left_eye_inner.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < left_eye_inner_path.length; i++) {
+      vertex(left_eye_inner_path[i].x, left_eye_inner_path[i].y);
+    }
+    endShape();
+    const dt_left_eye_inner = TWO_PI / fourier_left_eye_inner_Y.length;
+    left_eye_inner_time +=dt_left_eye_inner
+
+
+    // RIGHT PORTIONNNNNNNNNNNNNN
+
+    // Drawing right Eye
+    let v_right_eye_x = epiCycles(width / 2 + 100, 100, 0, fourier_right_eye_X , right_eye_time);
+    let v_right_eye_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_right_eye_Y, right_eye_time);
+    let v_right_eye = createVector(v_right_eye_x.x, v_right_eye_y.y);
+    right_eye_path.unshift(v_right_eye);
+    line(v_right_eye_x.x, v_right_eye_x.y, v_right_eye.x, v_right_eye.y);
+    line(v_right_eye_y.x,v_right_eye_y.y, v_right_eye.x, v_right_eye.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < right_eye_path.length; i++) {
+      vertex(right_eye_path[i].x, right_eye_path[i].y);
+    }
+    endShape();
+    const dt_right_eye = TWO_PI / fourier_right_eye_Y.length;
+    right_eye_time +=dt_right_eye
+
+
+    // Drawing right Eye Brow
+    let v_right_eyebrow_x = epiCycles(width / 2 + 100, 100, 0, fourier_right_eyebrow_X , right_eyebrow_time);
+    let v_right_eyebrow_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_right_eyebrow_Y, right_eyebrow_time);
+    let v_right_eyebrow = createVector(v_right_eyebrow_x.x, v_right_eyebrow_y.y);
+    right_eyebrow_path.unshift(v_right_eyebrow);
+    line(v_right_eyebrow_x.x, v_right_eyebrow_x.y, v_right_eyebrow.x, v_right_eyebrow.y);
+    line(v_right_eyebrow_y.x,v_right_eyebrow_y.y, v_right_eyebrow.x, v_right_eyebrow.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < right_eyebrow_path.length; i++) {
+      vertex(right_eyebrow_path[i].x, right_eyebrow_path[i].y);
+    }
+    endShape();
+    const dt_right_eyebrow = TWO_PI / fourier_right_eyebrow_Y.length;
+    right_eyebrow_time +=dt_right_eyebrow
+
+
+    // Drawing right Eye Outer
+    let v_right_eye_outer_x = epiCycles(width / 2 + 100, 100, 0, fourier_right_eye_outer_X , right_eye_outer_time);
+    let v_right_eye_outer_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_right_eye_outer_Y, right_eye_outer_time);
+    let v_right_eye_outer = createVector(v_right_eye_outer_x.x, v_right_eye_outer_y.y);
+    right_eye_outer_path.unshift(v_right_eye_outer);
+    line(v_right_eye_outer_x.x, v_right_eye_outer_x.y, v_right_eye_outer.x, v_right_eye_outer.y);
+    line(v_right_eye_outer_y.x,v_right_eye_outer_y.y, v_right_eye_outer.x, v_right_eye_outer.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < right_eye_outer_path.length; i++) {
+      vertex(right_eye_outer_path[i].x, right_eye_outer_path[i].y);
+    }
+    endShape();
+    const dt_right_eye_outer = TWO_PI / fourier_right_eye_outer_Y.length;
+    right_eye_outer_time +=dt_right_eye_outer
+    
+    
+    // Drawing right Eye inner
+    let v_right_eye_inner_x = epiCycles(width / 2 + 100, 100, 0, fourier_right_eye_inner_X , right_eye_inner_time);
+    let v_right_eye_inner_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_right_eye_inner_Y, right_eye_inner_time);
+    let v_right_eye_inner = createVector(v_right_eye_inner_x.x, v_right_eye_inner_y.y);
+    right_eye_inner_path.unshift(v_right_eye_inner);
+    line(v_right_eye_inner_x.x, v_right_eye_inner_x.y, v_right_eye_inner.x, v_right_eye_inner.y);
+    line(v_right_eye_inner_y.x,v_right_eye_inner_y.y, v_right_eye_inner.x, v_right_eye_inner.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < right_eye_inner_path.length; i++) {
+      vertex(right_eye_inner_path[i].x, right_eye_inner_path[i].y);
+    }
+    endShape();
+    const dt_right_eye_inner = TWO_PI / fourier_right_eye_inner_Y.length;
+    right_eye_inner_time +=dt_right_eye_inner
+    
+
+    // FACEEEEEEEEE
+    let v_face_x = epiCycles(width / 2 + 100, 100, 0, fourier_face_X , face_time);
+    let v_face_y = epiCycles(100, height / 2 + 100, HALF_PI, fourier_face_Y, face_time);
+    let v_face = createVector(v_face_x.x, v_face_y.y);
+    face_path.unshift(v_face);
+    line(v_face_x.x, v_face_x.y, v_face.x, v_face.y);
+    line(v_face_y.x,v_face_y.y, v_face.x, v_face.y);
+    beginShape();
+    noFill();
+    for (let i = 0; i < face_path.length; i++) {
+      vertex(face_path[i].x, face_path[i].y);
+    }
+    endShape();
+    const dt_face = TWO_PI / fourier_face_Y.length;
+    face_time +=dt_face
 
 
 
     // drawing_element(fouriernoseX,fouriernoseY,nosePath,nose_time)
     // drawing_element(fourierlipsX,fourierlipsY,lipsPath,lips_time)
-
-
-
     if (time > TWO_PI) {
       time = 0;
       path = [];

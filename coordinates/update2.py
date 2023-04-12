@@ -36,15 +36,52 @@ l_everything = [10, 109, 67, 103, 54, 21, 162, 127, 234, 93, 132, 58, 172, 136, 
                 390, 249, 263, 466, 388, 387, 386, 385, 384, 398, 362, 463, 417, 285, 295, 282, 283, 276, 293, 334, 296, 336, 285, 9, 151, 10]
 l7 = [159, 160, 145, 153]
 l11 = [386, 387, 374, 380]
+
+
+l4 = [55, 107, 66, 105, 63, 70, 53, 52, 65, 55]  # left eyebrow
+l5 = [243, 190, 56, 28, 27, 29, 30, 247, 130, 25,
+      110, 24, 23, 22, 26, 112, 243]  # left eye outer
+l6 = [133, 173, 157, 158, 159, 160, 161, 246, 33, 7,
+      163, 144, 145, 153, 154, 155, 133]  # left eye inner
+# left eye ball-->make sure to make it circular first
+
+
+l8 = [285, 295, 282, 283, 276, 293, 334, 296, 336, 285]  # right eyebrow
+l9 = [359, 467, 260, 259, 257, 258, 286, 414, 463, 341,
+      256, 252, 253, 254, 339, 255, 359]  # right eye outer
+l10 = [263, 466, 388, 387, 386, 385, 384, 398, 362, 382,
+       381, 380, 374, 373, 390, 249, 263]  # right eye inner
+l11 = [386, 374, 380, 384, 385, 386]
+# right eye ball-->make sure to make it circular first
+
+l121 = [10, 109, 67, 103, 54, 21, 162, 127, 234, 93, 132, 58, 172, 136, 150, 149, 176, 148, 152, 377, 400,
+        378, 379, 365, 397, 288, 361, 323, 454, 356, 389, 251, 284, 332, 297, 338, 10]  # face
+
+
+
+
 l1 = len(l_everything)
 length_lips = len(l_lips)
 length_nose = len(l_nose)
+length_lefteye = len(l_lefteye)
+length_righteye = len(l_righteye)
+
+length_left_eyebrow = len(l4)
+length_left_eye_outer = len(l5)
+length_left_eye_inner = len(l6)
+
+length_right_eyebrow = len(l8)
+length_right_eye_outer = len(l9)
+length_right_eye_inner = len(l10)
+
+length_face = len(l121)
+
 X = []
 Y = []
 Z = []
-for i in range(length_nose):
+for i in range(length_face):
     for facial_landmarks in result.multi_face_landmarks:
-        pt = facial_landmarks.landmark[l_nose[i]]
+        pt = facial_landmarks.landmark[l121[i]]
         x = pt.x*w
         y = pt.y*h
       #   z = pt.z
@@ -55,6 +92,7 @@ for i in range(length_nose):
         # cv2.circle(image, (int(x), int(y)), 2, (0, 0, 0), -1)
 # print(X)
 # print(Y)
+
 
 
 L = len(X)
