@@ -37,18 +37,20 @@ l_everything = [10, 109, 67, 103, 54, 21, 162, 127, 234, 93, 132, 58, 172, 136, 
 l7 = [159, 160, 145, 153]
 l11 = [386, 387, 374, 380]
 l1 = len(l_everything)
+length_lips = len(l_lips)
+length_nose = len(l_nose)
 X = []
 Y = []
 Z = []
-for i in range(l1):
+for i in range(length_nose):
     for facial_landmarks in result.multi_face_landmarks:
-        pt = facial_landmarks.landmark[l_everything[i]]
+        pt = facial_landmarks.landmark[l_nose[i]]
         x = pt.x*w
         y = pt.y*h
-        z = pt.z
+      #   z = pt.z
         X.append(x)
         Y.append(y)
-        Z.append(z)
+      #   Z.append(z)
         # print('{ x:', x, ', y:', y, '},')
         # cv2.circle(image, (int(x), int(y)), 2, (0, 0, 0), -1)
 # print(X)
@@ -59,8 +61,9 @@ L = len(X)
 print(L)
 i = 0
 while(i < L):
-    print('{ x:', X[i], ', y:', Y[i], ',', 'z:', Z[i], '},')
-    i = i+1
+      print(' { x:', X[i], ', y:', Y[i], '' '', '},')
+      # print('{x:',X[i], ',y:',Y[i]}')
+      i = i+1
 
 # print()
 
