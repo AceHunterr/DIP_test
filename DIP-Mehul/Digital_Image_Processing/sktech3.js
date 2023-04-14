@@ -12,11 +12,11 @@ let time = 0;
 let path = [];
 
 function setup() {
-  createCanvas(1100, 800);
+  createCanvas(2000, 2500);
   const skip = 5;
-  for (let i = 0; i < ramanujan.length; i += skip) {
-    x.push(ramanujan[i].x);
-    y.push(ramanujan[i].y);
+  for (let i = 0; i < dragon.length; i += skip) {
+    x.push(dragon[i].x);
+    y.push(dragon[i].y);
   }
   fourierX = dft(x);
   fourierY = dft(y);
