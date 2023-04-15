@@ -15,8 +15,8 @@ function setup() {
   createCanvas(2000, 2500);
   const skip = 5;
   for (let i = 0; i < dragon.length; i += skip) {
-    x.push(dragon[i].x);
-    y.push(dragon[i].y);
+    x.push(dragon[i].x/2);
+    y.push(dragon[i].y/2);
   }
   fourierX = dft(x);
   fourierY = dft(y);

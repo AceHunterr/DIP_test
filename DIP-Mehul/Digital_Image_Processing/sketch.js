@@ -123,8 +123,8 @@ console.log(drawing)
     for (let i = 0; i < lips.length; i += skip) {
       // x.push(lips[i].x);
       // y.push(lips[i].y);
-      lipsX.push(lips[i].x);
-      lipsY.push(lips[i].y);
+      lipsX.push(lips[i].x*3);
+      lipsY.push(lips[i].y*3);
     }
     fourierlipsX = dft(lipsX);
     fourierlipsY = dft(lipsY);
@@ -141,8 +141,8 @@ console.log(drawing)
     // path = []
     const skip = 1;
     for (let i = 0; i < nose.length; i += skip) {
-      noseX.push(nose[i].x);
-      noseY.push(nose[i].y);
+      noseX.push(nose[i].x*3);
+      noseY.push(nose[i].y*3);
     }
     fouriernoseX = dft(noseX);
     fouriernoseY = dft(noseY);
@@ -161,8 +161,8 @@ console.log(drawing)
     // path = []
     const skip = 1;
     for (let i = 0; i < left_eye.length; i += skip) {
-      left_eye_x.push(left_eye[i].x);
-      left_eye_y.push(left_eye[i].y);
+      left_eye_x.push(left_eye[i].x*3);
+      left_eye_y.push(left_eye[i].y*3);
     }
     fourier_left_eye_X = dft(left_eye_x);
     fourier_left_eye_Y = dft(left_eye_y);
@@ -179,8 +179,8 @@ console.log(drawing)
     // path = []
     const skip = 1;
     for (let i = 0; i < left_eyebrow.length; i += skip) {
-      left_eyebrow_x.push(left_eyebrow[i].x);
-      left_eyebrow_y.push(left_eyebrow[i].y);
+      left_eyebrow_x.push(left_eyebrow[i].x*3);
+      left_eyebrow_y.push(left_eyebrow[i].y*3);
     }
     fourier_left_eyebrow_X = dft(left_eyebrow_x);
     fourier_left_eyebrow_Y = dft(left_eyebrow_y);
@@ -196,8 +196,8 @@ console.log(drawing)
   // path = []
   const skip = 1;
   for (let i = 0; i < left_eye_outer.length; i += skip) {
-    left_eye_outer_x.push(left_eye_outer[i].x);
-    left_eye_outer_y.push(left_eye_outer[i].y);
+    left_eye_outer_x.push(left_eye_outer[i].x*3);
+    left_eye_outer_y.push(left_eye_outer[i].y*3);
   }
   fourier_left_eye_outer_X = dft(left_eye_outer_x);
   fourier_left_eye_outer_Y = dft(left_eye_outer_y);
@@ -213,8 +213,8 @@ function creating_left_eye_inner()
   // path = []
   const skip = 1;
   for (let i = 0; i < left_eye_inner.length; i += skip) {
-    left_eye_inner_x.push(left_eye_inner[i].x);
-    left_eye_inner_y.push(left_eye_inner[i].y);
+    left_eye_inner_x.push(left_eye_inner[i].x*3);
+    left_eye_inner_y.push(left_eye_inner[i].y*3);
   }
   fourier_left_eye_inner_X = dft(left_eye_inner_x);
   fourier_left_eye_inner_Y = dft(left_eye_inner_y);
@@ -232,8 +232,8 @@ function creating_left_eye_inner()
     // path = []
     const skip = 1;
     for (let i = 0; i < right_eye.length; i += skip) {
-      right_eye_x.push(right_eye[i].x);
-      right_eye_y.push(right_eye[i].y);
+      right_eye_x.push(right_eye[i].x*3);
+      right_eye_y.push(right_eye[i].y*3);
     }
     fourier_right_eye_X = dft(right_eye_x);
     fourier_right_eye_Y = dft(right_eye_y);
@@ -249,8 +249,8 @@ function creating_left_eye_inner()
   // path = []
   const skip = 1;
   for (let i = 0; i < right_eyebrow.length; i += skip) {
-    right_eyebrow_x.push(right_eyebrow[i].x);
-    right_eyebrow_y.push(right_eyebrow[i].y);
+    right_eyebrow_x.push(right_eyebrow[i].x*3);
+    right_eyebrow_y.push(right_eyebrow[i].y*3);
   }
   fourier_right_eyebrow_X = dft(right_eyebrow_x);
   fourier_right_eyebrow_Y = dft(right_eyebrow_y);
@@ -266,8 +266,8 @@ function creating_right_eye_outer()
 // path = []
 const skip = 1;
 for (let i = 0; i < right_eye_outer.length; i += skip) {
-  right_eye_outer_x.push(right_eye_outer[i].x);
-  right_eye_outer_y.push(right_eye_outer[i].y);
+  right_eye_outer_x.push(right_eye_outer[i].x*3);
+  right_eye_outer_y.push(right_eye_outer[i].y*3);
 }
 fourier_right_eye_outer_X = dft(right_eye_outer_x);
 fourier_right_eye_outer_Y = dft(right_eye_outer_y);
@@ -283,8 +283,8 @@ function creating_right_eye_inner()
 // path = []
 const skip = 1;
 for (let i = 0; i < right_eye_inner.length; i += skip) {
-  right_eye_inner_x.push(right_eye_inner[i].x);
-  right_eye_inner_y.push(right_eye_inner[i].y);
+  right_eye_inner_x.push(right_eye_inner[i].x*3);
+  right_eye_inner_y.push(right_eye_inner[i].y*3);
 }
 fourier_right_eye_inner_X = dft(right_eye_inner_x);
 fourier_right_eye_inner_Y = dft(right_eye_inner_y);
@@ -302,8 +302,8 @@ function creating_face()
 // path = []
 const skip = 1;
 for (let i = 0; i < face.length; i += skip) {
-  face_x.push(face[i].x);
-  face_y.push(face[i].y);
+  face_x.push(face[i].x*3);
+  face_y.push(face[i].y*3);
 }
 fourier_face_X = dft(face_x);
 fourier_face_Y = dft(face_y);
@@ -316,7 +316,7 @@ fourier_face_Y.sort((a, b) => b.amp - a.amp);
 
 
   function setup() {
-    createCanvas(1000, 1200);
+    createCanvas(1200, 1400);
     creating_lips()
     creating_nose()
     creating_left_eye()

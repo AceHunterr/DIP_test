@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import mediapipe as mp
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh()
-image = cv2.imread('img3.jpeg')
+image = cv2.imread('mehul.jpeg')
 rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 h, w, _ = image.shape
 # print(h, w)
@@ -79,9 +79,9 @@ length_face = len(l121)
 X = []
 Y = []
 Z = []
-for i in range(length_face):
+for i in range(l1):
     for facial_landmarks in result.multi_face_landmarks:
-        pt = facial_landmarks.landmark[l121[i]]
+        pt = facial_landmarks.landmark[l_everything[i]]
         x = pt.x*w
         y = pt.y*h
       #   z = pt.z
