@@ -3,7 +3,6 @@
 // https://thecodingtrain.com/CodingChallenges/130-fourier-transform-drawing.html
 // https://youtu.be/MY4luNgGfms
 
-
 let x = [];
 let y = [];
 let fourierX;
@@ -12,18 +11,17 @@ let time = 0;
 let path = [];
 
 function setup() {
-  createCanvas(2000, 2500);
+  createCanvas(1600, 800);
   const skip = 5;
   for (let i = 0; i < dragon.length; i += skip) {
-    x.push(dragon[i].x/2);
-    y.push(dragon[i].y/2);
+    x.push(dragon[i].x / 2);
+    y.push(dragon[i].y / 2);
   }
   fourierX = dft(x);
   fourierY = dft(y);
-  
+
   fourierX.sort((a, b) => b.amp - a.amp);
   fourierY.sort((a, b) => b.amp - a.amp);
-  
 }
 
 function epiCycles(x, y, rotation, fourier) {
@@ -35,7 +33,7 @@ function epiCycles(x, y, rotation, fourier) {
     let phase = fourier[i].phase;
     x += radius * cos(freq * time + phase + rotation);
     y += radius * sin(freq * time + phase + rotation);
-    
+
     stroke(255, 100);
     noFill();
     ellipse(prevx, prevy, radius * 2);
@@ -52,10 +50,10 @@ function draw() {
   let vy = epiCycles(100, height / 2 + 100, HALF_PI, fourierY);
   let v = createVector(vx.x, vy.y);
   path.unshift(v);
-  
-  line(vx.x, vx.y, v.x, v.y );
+
+  line(vx.x, vx.y, v.x, v.y);
   line(vy.x, vy.y, v.x, v.y);
-  
+
   beginShape();
   noFill();
   for (let i = 0; i < path.length; i++) {
@@ -70,8 +68,4 @@ function draw() {
   //   time = 0;
   //   // path = [];
   // }
-
 }
-
-
-
