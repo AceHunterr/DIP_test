@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIP</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta charset="utf-8" />
   </head>
   <body>
-    <!-- <script src="ct.js"></script> -->
-    
-    <!-- <script src="sketch.js"></script> -->
-    
-<ul>
-  <li>    <a href="dragon.html">Dragon</a> </li>
-  <li>    <a href="ramanunjan.html">Ramanujan</a> </li>
-  <li>    <a href="coding_train_logo.html">Logo</a></li>
-  <li>        <a href="index.html">FACE </a></li>
-</ul>
-
+    <div class="bouncing-blobs-container">
+      <div class="bouncing-blobs-glass"></div>
+      <div class="bouncing-blobs">
+        <div class="bouncing-blob bouncing-blob--blue"></div>
+        <div class="bouncing-blob bouncing-blob--blue"></div>
+        <div class="bouncing-blob bouncing-blob--blue"></div>
+        <div class="bouncing-blob bouncing-blob--white"></div>
+        <div class="bouncing-blob bouncing-blob--purple"></div>
+        <div class="bouncing-blob bouncing-blob--purple"></div>
+        <div class="bouncing-blob bouncing-blob--pink"></div>
+      </div>
+    </div>
+    <div class="hero">
+      <h2>Digital Image Processing</h2>
+      <div class="projects">
+        <ul class="nav">
+          <li class="button-dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle">
+              Projects <span>▼</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="ramanunjan.html" class="btn-11"> Ramanujan</a>
+              </li>
+              <li>
+                <a href="dragon.html" class="btn-11"> Dragon </a>
+              </li>
+              <li>
+                <a href="coding_train_logo.html" class="btn-11"> Train </a>
+              </li>
+              <li>
+                <a href="index.html" class="btn-11"> Face </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="./dropDown.js"></script>
   </body>
 </html>
